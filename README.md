@@ -1,4 +1,4 @@
-## FrontendMasters Notes & Completed Exercises
+# FrontendMasters Notes & Completed Exercises
 
 > Courses can be selected by switching branch.
 
