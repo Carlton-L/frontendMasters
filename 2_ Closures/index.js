@@ -373,25 +373,27 @@ console.log(myActions('undo')); // => should log 'nothing to undo'
 
 // CHALLENGE 19
 function blackjack(array) {
-  let scoreBoard = {}; // "global" scoreboard for all the players
-  let i = 0; // number of times the dealer has dealt a set of cards (player number)
   return function dealer(num1, num2) {
-    let sum = num1 + num2;
-    let dealt = false;
-    let busted = false;
+    let scoreBoard = {}; // scoreboard to keep track of player dealt when dealer invoked
     return function player() {
-      if (dealt && !busted) {
-        sum += array.shift();
-        if (sum > 21) {
-          busted = true;
-          return 'bust';
+      if (scoreBoard.player) {
+        if (scoreBoard.player.bust) {
+          return 'you are done';
         }
-        return sum;
-      } else if (busted) {
-        return 'you are done';
+        scoreBoard.player.sum += array.shift();
+        if (scoreBoard.player.sum > 21) {
+          scoreBoard.player.bust = true;
+          return 'bust';
+        } else {
+          return scoreBoard.player.sum;
+        }
       } else {
-        dealt = true;
-        return sum;
+        // If scoreBoard doesn't have a player property, create one
+        scoreBoard.player = {
+          sum: num1 + num2,
+          bust: false,
+        };
+        return scoreBoard.player.sum;
       }
     };
   };
