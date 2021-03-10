@@ -1,4 +1,4 @@
-# FrontendMasters Notes & Completed Exercises
+# API Design in Node.js v3 Notes and Exercises
 
 > Courses can be selected by switching branch.
 
