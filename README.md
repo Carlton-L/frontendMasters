@@ -1,4 +1,4 @@
-# FrontendMasters Notes & Completed Exercises
+# Complete Intro to React v6 Notes & Completed Exercises
 
 > Courses can be selected by switching branch.
 
